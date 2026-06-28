@@ -1,96 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECHOX | Coming Soon</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon | ECHOX</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        body {
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #2a1b5f, #0f0c29);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+body{
+font-family:'Inter',sans-serif;
+background:#0C0E14;
+color:#E2E6F0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+position:relative;
+}
 
-        .container {
-            padding: 40px 25px;
-            max-width: 500px;
-            width: 100%;
-        }
+body::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#7C5CFC25,transparent 70%);
+top:-250px;
+left:-250px;
+}
 
-        .logo {
-            font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
+body::after{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#22D3EE20,transparent 70%);
+bottom:-250px;
+right:-250px;
+}
 
-        .tagline {
-            font-size: 1rem;
-            opacity: 0.85;
-            margin-bottom: 30px;
-        }
+.container{
+position:relative;
+z-index:2;
+text-align:center;
+padding:40px;
+background:rgba(19,21,31,.75);
+border:1px solid #23273A;
+border-radius:24px;
+backdrop-filter:blur(18px);
+max-width:650px;
+width:90%;
+box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
 
-        .coming {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
+.logo{
+font-family:'Space Grotesk',sans-serif;
+font-size:4rem;
+font-weight:700;
+background:linear-gradient(135deg,#7C5CFC,#22D3EE);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:20px;
+}
 
-        .desc {
-            font-size: 0.95rem;
-            opacity: 0.75;
-            line-height: 1.6;
-        }
+h1{
+font-family:'Space Grotesk',sans-serif;
+font-size:2.3rem;
+margin-bottom:15px;
+}
 
-        .divider {
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(to right, #8b5cf6, #ec4899);
-            margin: 25px auto;
-            border-radius: 50px;
-        }
+p{
+color:#9EA5C3;
+font-size:1rem;
+line-height:1.8;
+margin-bottom:30px;
+}
 
-        footer {
-            margin-top: 40px;
-            font-size: 0.75rem;
-            opacity: 0.6;
-        }
-    </style>
+.badge{
+display:inline-block;
+padding:12px 28px;
+background:linear-gradient(135deg,#7C5CFC,#22D3EE);
+color:#fff;
+font-weight:600;
+border-radius:50px;
+letter-spacing:1px;
+font-size:.9rem;
+}
+
+footer{
+margin-top:35px;
+font-size:.85rem;
+color:#6B728E;
+}
+
+@media(max-width:600px){
+.logo{font-size:3rem;}
+h1{font-size:1.8rem;}
+}
+</style>
 </head>
 
 <body>
 
-    <div class="container">
-        <div class="logo">ECHOX</div>
-        <div class="tagline">Future-ready online shopping experience</div>
+<div class="container">
 
-        <div class="divider"></div>
+<div class="logo">ECHOX</div>
 
-        <div class="coming">🚀 Online Store Coming Soon</div>
-        <p class="desc">
-            We’re building something powerful, fast, and secure.<br>
-            Stay tuned for the launch.
-        </p>
+<h1>Website Coming Soon</h1>
 
-        <footer>
-            © 2025 ECHOX. All rights reserved.
-        </footer>
-    </div>
+<p>
+We're building something amazing for developers.<br>
+This page is currently under development and will be available soon.
+Thank you for your patience.
+</p>
+
+<div class="badge">🚀 COMING SOON</div>
+
+<footer>
+Copyright © 2025 ECHOX. All Rights Reserved.
+</footer>
+
+</div>
 
 </body>
 </html>
