@@ -3,131 +3,463 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coming Soon | ECHOX</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-
+<meta name="theme-color" content="#090909">
+<meta name="description" content="DEVIL'S ARENA — One Arena. Endless Battles. Discover tournaments, season history, teams and results.">
+<title>DEVIL'S ARENA — One Arena. Endless Battles.</title>
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root {
+  --bg: #090909;
+  --surface: #111111;
+  --surface-2: #171717;
+  --red: #ed202b;
+  --red-dark: #a91620;
+  --text: #f5f5f5;
+  --muted: #a7a7a7;
+  --line: #292929;
+  --max: 1180px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+img { max-width: 100%; display: block; }
+.wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(9,9,9,.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+.nav {
+  min-height: 76px; display: flex; align-items: center; gap: 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.brand-mark {
+  width: 42px; height: 42px; object-fit: contain; flex: 0 0 auto;
+}
+.brand-copy { line-height: 1.15; }
+.brand-name { font-weight: 900; font-size: 15px; letter-spacing: .06em; }
+.brand-tag { color: var(--muted); font-size: 9px; letter-spacing: .18em; margin-top: 5px; }
+.nav-links { display: flex; align-items: center; gap: 22px; }
+.nav-links a {
+  color: #d0d0d0; font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .04em; transition: color .2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--red); }
+.nav-actions { display: flex; gap: 8px; align-items: center; }
+.btn {
+  display: inline-flex; justify-content: center; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 18px; border-radius: 7px;
+  border: 1px solid transparent; font-size: 12px; font-weight: 850;
+  letter-spacing: .035em; text-transform: uppercase; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--red); color: white; }
+.btn-primary:hover { background: #ff303b; }
+.btn-outline { border-color: #6f2529; color: white; background: transparent; }
+.btn-outline:hover { border-color: var(--red); background: #160d0e; }
+.menu-toggle {
+  display: none; width: 42px; height: 42px; border: 1px solid var(--line);
+  background: var(--surface); color: white; border-radius: 7px; font-size: 21px;
 }
 
-body{
-font-family:'Inter',sans-serif;
-background:#0C0E14;
-color:#E2E6F0;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-overflow:hidden;
-position:relative;
+/* Hero: one artwork only, embedded in this HTML */
+.hero {
+  min-height: 570px; display: grid; place-items: center; position: relative;
+  overflow: hidden; isolation: isolate; text-align: center;
+  background: #080808;
 }
-
-body::before{
-content:"";
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,#7C5CFC25,transparent 70%);
-top:-250px;
-left:-250px;
+.hero-art {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  opacity: .48;
 }
-
-body::after{
-content:"";
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,#22D3EE20,transparent 70%);
-bottom:-250px;
-right:-250px;
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(7,7,7,.45), rgba(7,7,7,.38) 45%, #090909 100%);
 }
-
-.container{
-position:relative;
-z-index:2;
-text-align:center;
-padding:40px;
-background:rgba(19,21,31,.75);
-border:1px solid #23273A;
-border-radius:24px;
-backdrop-filter:blur(18px);
-max-width:650px;
-width:90%;
-box-shadow:0 20px 60px rgba(0,0,0,.45);
+.hero-content { width: min(850px, calc(100% - 32px)); padding: 78px 0 82px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: #ff6a70; font-size: 11px; font-weight: 900;
+  letter-spacing: .23em; text-transform: uppercase;
 }
-
-.logo{
-font-family:'Space Grotesk',sans-serif;
-font-size:4rem;
-font-weight:700;
-background:linear-gradient(135deg,#7C5CFC,#22D3EE);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:20px;
+.eyebrow::before, .eyebrow::after { content: ""; width: 22px; height: 1px; background: var(--red); }
+.hero h1 {
+  margin: 20px 0 14px; font-size: clamp(42px, 7.4vw, 82px);
+  line-height: .99; font-weight: 950; letter-spacing: -.055em;
+  text-transform: uppercase;
 }
-
-h1{
-font-family:'Space Grotesk',sans-serif;
-font-size:2.3rem;
-margin-bottom:15px;
+.hero h1 span { color: var(--red); display: block; }
+.hero-subtitle {
+  margin: 20px 0 12px; font-size: 12px; font-weight: 900;
+  letter-spacing: .32em; text-transform: uppercase;
 }
-
-p{
-color:#9EA5C3;
-font-size:1rem;
-line-height:1.8;
-margin-bottom:30px;
+.hero-description {
+  max-width: 620px; margin: 0 auto; color: #c0c0c0; font-size: 15px;
 }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+.hero-note { color: #888; font-size: 11px; margin-top: 24px; letter-spacing: .06em; }
 
-.badge{
-display:inline-block;
-padding:12px 28px;
-background:linear-gradient(135deg,#7C5CFC,#22D3EE);
-color:#fff;
-font-weight:600;
-border-radius:50px;
-letter-spacing:1px;
-font-size:.9rem;
+/* Shared sections */
+section { padding: 82px 0; }
+.section-kicker {
+  color: #ff656d; font-size: 10px; font-weight: 900;
+  letter-spacing: .22em; text-transform: uppercase; margin-bottom: 9px;
 }
-
-footer{
-margin-top:35px;
-font-size:.85rem;
-color:#6B728E;
+.section-heading {
+  font-size: clamp(27px, 4vw, 42px); line-height: 1.1;
+  letter-spacing: -.035em; text-transform: uppercase; margin: 0;
 }
+.section-heading span { color: var(--red); }
+.section-intro { max-width: 620px; color: var(--muted); font-size: 14px; margin: 14px 0 0; }
+.section-top { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+.text-link { color: #ff646c; font-size: 12px; font-weight: 850; white-space: nowrap; }
+.text-link:hover { color: white; }
 
-@media(max-width:600px){
-.logo{font-size:3rem;}
-h1{font-size:1.8rem;}
+/* Stats */
+.stats-section { padding-top: 0; margin-top: -1px; position: relative; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); background: #0e0e0e; }
+.stat { padding: 25px 20px; text-align: center; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: 0; }
+.stat-number { font-size: clamp(27px, 4vw, 38px); line-height: 1.15; font-weight: 950; letter-spacing: -.04em; }
+.stat-label { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-top: 8px; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 58px; }
+.about-copy p { color: #b4b4b4; font-size: 14px; }
+.about-art-wrap { min-height: 230px; display: grid; place-items: center; }
+.about-art-wrap img { display: none; } /* Keep one hero artwork only. */
+.host-card { border-left: 3px solid var(--red); padding: 8px 0 8px 18px; margin-top: 25px; }
+.host-label { color: var(--muted); font-size: 10px; letter-spacing: .18em; font-weight: 800; text-transform: uppercase; }
+.host-name { font-size: 23px; font-weight: 950; text-transform: uppercase; margin-top: 3px; }
+.host-note { color: #888; font-size: 12px; }
+
+/* Tournaments */
+.tournaments-section { background: #0e0e0e; border-block: 1px solid #151515; }
+.tournament-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.tournament-card {
+  background: #121212; border: 1px solid #2a2a2a; border-radius: 10px;
+  padding: 22px; display: flex; flex-direction: column; min-height: 255px;
+}
+.status {
+  display: inline-flex; align-self: flex-start; border-radius: 4px;
+  background: #1a311f; color: #8de09b; padding: 4px 9px;
+  font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase;
+}
+.status.placeholder { background: #252525; color: #c6c6c6; }
+.tournament-card h3 { font-size: 18px; margin: 16px 0 8px; text-transform: uppercase; }
+.tournament-card p { color: var(--muted); font-size: 12px; margin: 0 0 14px; }
+.tournament-meta { display: grid; gap: 7px; margin: 0 0 22px; color: #c5c5c5; font-size: 11px; }
+.tournament-meta strong { color: white; }
+.tournament-card .btn { width: 100%; margin-top: auto; }
+
+/* Seasons */
+.season-list { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 30px; }
+.season-card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 17px 14px; }
+.season-title { font-size: 19px; font-weight: 950; }
+.season-state { font-size: 10px; color: var(--muted); margin-top: 5px; }
+.season-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #555; margin-right: 5px; }
+.season-card.completed .season-dot { background: #8de09b; }
+.season-card.live .season-dot { background: var(--red); }
+.season-help { color: #858585; font-size: 11px; margin-top: 18px; }
+
+/* CTA and footer */
+.community { padding: 0 0 82px; }
+.community-box {
+  background: #131010; border: 1px solid #332022; border-radius: 12px;
+  padding: 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px;
+}
+.community-box p { color: var(--muted); margin: 10px 0 0; font-size: 13px; }
+.community-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+footer { border-top: 1px solid var(--line); background: #070707; padding: 48px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 34px; }
+.footer-brand { font-size: 17px; font-weight: 950; letter-spacing: .04em; }
+.footer-brand span { color: var(--red); }
+.footer-description { max-width: 280px; color: #888; font-size: 12px; margin-top: 12px; }
+.footer-heading { color: white; font-size: 10px; letter-spacing: .15em; font-weight: 900; text-transform: uppercase; margin-bottom: 14px; }
+.footer-links { display: grid; gap: 9px; }
+.footer-links a { color: #999; font-size: 12px; }
+.footer-links a:hover { color: white; }
+.footer-bottom {
+  margin-top: 38px; padding-top: 18px; border-top: 1px solid #202020;
+  display: flex; justify-content: space-between; gap: 16px; color: #777; font-size: 10px;
+}
+.back-top { color: #bbb; }
+.back-top:hover { color: var(--red); }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .nav { gap: 14px; }
+  .nav-links { gap: 13px; }
+  .nav-links a { font-size: 10px; }
+  .nav-actions .btn { padding-inline: 12px; min-height: 38px; font-size: 10px; }
+  .about-grid { gap: 30px; }
+  .season-list { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 760px) {
+  .wrap { width: min(100% - 30px, var(--max)); }
+  .nav { min-height: 68px; }
+  .brand-mark { width: 36px; height: 36px; }
+  .brand-name { font-size: 12px; }
+  .brand-tag { font-size: 7px; letter-spacing: .12em; }
+  .menu-toggle { display: inline-grid; place-items: center; }
+  .nav-links {
+    display: none; position: absolute; top: 68px; left: 0; right: 0;
+    padding: 18px 20px 22px; background: #0b0b0b; border-bottom: 1px solid var(--line);
+    flex-direction: column; align-items: stretch; gap: 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 0; border-bottom: 1px solid #1d1d1d; font-size: 12px; }
+  .nav-actions { display: none; }
+  .hero { min-height: 510px; }
+  .hero-art { opacity: .4; object-position: center; }
+  .hero-content { padding: 75px 0 70px; }
+  .hero h1 { font-size: clamp(39px, 11vw, 62px); }
+  .hero-subtitle { letter-spacing: .2em; font-size: 10px; }
+  .hero-description { font-size: 13px; }
+  section { padding: 62px 0; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat { border-bottom: 1px solid var(--line); padding: 20px 10px; }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(3), .stat:nth-child(4) { border-bottom: 0; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-art-wrap { display: none; }
+  .section-top { align-items: start; flex-direction: column; gap: 14px; }
+  .tournament-grid { grid-template-columns: 1fr; }
+  .tournament-card { min-height: 0; }
+  .season-list { grid-template-columns: repeat(2, 1fr); }
+  .community { padding-bottom: 62px; }
+  .community-box { padding: 25px 20px; align-items: flex-start; flex-direction: column; }
+  .community-actions { width: 100%; }
+  .community-actions .btn { flex: 1; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; }
+}
+@media (max-width: 380px) {
+  .wrap { width: calc(100% - 24px); }
+  .brand-tag { display: none; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; }
+  .season-list { gap: 8px; }
+  .season-card { padding: 14px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
 }
 </style>
 </head>
+<body id="top">
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="DEVIL'S ARENA home">
+      <span class="brand-copy">
+        <span class="brand-name">DEVIL'S ARENA</span>
+        <span class="brand-tag">ONE ARENA. ENDLESS BATTLES.</span>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a class="active" href="#top">Home</a>
+      <a href="tournaments.html">Tournaments</a>
+      <a href="#seasons">Seasons</a>
+      <a href="matches.html">Results</a>
+      <a href="announcements.html">Announcements</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-outline" href="login.html">Login</a>
+      <a class="btn btn-primary" href="signup.html">Sign Up</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
 
-<body>
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <img class="hero-art" src="logo.png" alt="" fetchpriority="high">
+    <div class="hero-content">
+      <div class="eyebrow">Welcome to the arena</div>
+      <h1 id="heroTitle">One Arena.<span>Endless Battles.</span></h1>
+      <div class="hero-subtitle">Competitive Esports Platform</div>
+      <p class="hero-description">Enter the Arena. Discover competitive tournaments, challenge other teams, and prove your skills.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tournaments.html">Browse Tournaments</a>
+        <a class="btn btn-outline" href="#community">Join the Arena</a>
+      </div>
+      <div class="hero-note">OFFICIAL HOST: DEVIL</div>
+    </div>
+  </section>
 
-<div class="container">
+  <section class="stats-section" aria-label="Arena statistics">
+    <div class="wrap stats-grid">
+      <div class="stat"><div class="stat-number">—</div><div class="stat-label">Players Competed</div></div>
+      <div class="stat"><div class="stat-number">—</div><div class="stat-label">Teams Participated</div></div>
+      <div class="stat"><div class="stat-number">—</div><div class="stat-label">Tournaments Hosted</div></div>
+      <div class="stat"><div class="stat-number">—</div><div class="stat-label">Matches Played</div></div>
+    </div>
+  </section>
 
-<div class="logo">ECHOX</div>
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <div class="section-kicker">The battle starts here</div>
+        <h2 class="section-heading">Welcome to <span>DEVIL'S ARENA</span></h2>
+        <p>DEVIL'S ARENA is a competitive gaming community built around squads, tournaments, and the stories created every season.</p>
+        <p>Explore tournaments, follow match results, discover past champions, and keep up with official announcements—all in one place.</p>
+        <div class="host-card">
+          <div class="host-label">Main host</div>
+          <div class="host-name">DEVIL</div>
+          <div class="host-note">Building the arena, one battle at a time.</div>
+        </div>
+      </div>
+      <div class="about-art-wrap" aria-hidden="true"></div>
+    </div>
+  </section>
 
-<h1>Website Coming Soon</h1>
+  <section class="tournaments-section" id="tournaments">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="section-kicker">Find your next challenge</div>
+          <h2 class="section-heading">Featured <span>Tournaments</span></h2>
+          <p class="section-intro">Check tournament details, entry information, rules, and registration status.</p>
+        </div>
+        <a class="text-link" href="tournaments.html">View all tournaments →</a>
+      </div>
+      <div class="tournament-grid">
+        <article class="tournament-card">
+          <span class="status placeholder">Check details</span>
+          <h3>Featured Tournament</h3>
+          <p>Explore the current tournament and review its official details before registering.</p>
+          <div class="tournament-meta"><div>Mode: <strong>See tournament details</strong></div><div>Slots: <strong>See tournament details</strong></div></div>
+          <a class="btn btn-primary" href="tournaments.html">Explore Tournament</a>
+        </article>
+        <article class="tournament-card">
+          <span class="status placeholder">Season events</span>
+          <h3>Season Tournaments</h3>
+          <p>Follow season events and find out which tournaments are open for registration.</p>
+          <div class="tournament-meta"><div>Season: <strong>View season page</strong></div><div>Status: <strong>Check updates</strong></div></div>
+          <a class="btn btn-outline" href="seasons.html">Explore Seasons</a>
+        </article>
+        <article class="tournament-card">
+          <span class="status placeholder">Past events</span>
+          <h3>Past Competitions</h3>
+          <p>Look back at completed events, participating teams, and published results.</p>
+          <div class="tournament-meta"><div>Results: <strong>Published when available</strong></div><div>History: <strong>Season archive</strong></div></div>
+          <a class="btn btn-outline" href="matches.html">View Results</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<p>
-We're building something amazing for developers.<br>
-This page is currently under development and will be available soon.
-Thank you for your patience.
-</p>
+  <section id="seasons">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="section-kicker">Every season leaves a mark</div>
+          <h2 class="section-heading">Our <span>Season History</span></h2>
+          <p class="section-intro">Explore each season and see which events were played. Season statuses will be updated from official records.</p>
+        </div>
+        <a class="text-link" href="seasons.html">View season history →</a>
+      </div>
+      <div class="season-list">
+        <a class="season-card" href="seasons.html"><div class="season-title">S1</div><div class="season-state"><span class="season-dot"></span>View status</div></a>
+        <a class="season-card" href="seasons.html"><div class="season-title">S2</div><div class="season-state"><span class="season-dot"></span>View status</div></a>
+        <a class="season-card" href="seasons.html"><div class="season-title">S3</div><div class="season-state"><span class="season-dot"></span>View status</div></a>
+        <a class="season-card" href="seasons.html"><div class="season-title">S4</div><div class="season-state"><span class="season-dot"></span>View status</div></a>
+        <a class="season-card" href="seasons.html"><div class="season-title">S5</div><div class="season-state"><span class="season-dot"></span>View status</div></a>
+        <a class="season-card" href="seasons.html"><div class="season-title">S6</div><div class="season-state"><span class="season-dot"></span>View status</div></a>
+      </div>
+      <p class="season-help">Season cards are placeholders until actual season records are added. Unplayed seasons will not be counted as completed.</p>
+    </div>
+  </section>
 
-<div class="badge">🚀 COMING SOON</div>
+  <section class="community" id="community">
+    <div class="wrap community-box">
+      <div>
+        <div class="section-kicker">Stay connected</div>
+        <h2 class="section-heading">Join the <span>Arena</span></h2>
+        <p>Follow official announcements and contact the host for tournament questions.</p>
+      </div>
+      <div class="community-actions">
+        <a class="btn btn-primary" href="https://chat.whatsapp.com/LZLdj8k3l2gCtmWTB5UggG" target="_blank" rel="noopener noreferrer">WhatsApp Community</a>
+        <a class="btn btn-outline" href="https://instagram.com/devils__arena" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-Copyright © 2025 ECHOX. All Rights Reserved.
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">DEVIL'S <span>ARENA</span></div>
+        <p class="footer-description">One Arena. Endless Battles. A competitive gaming community hosted by DEVIL.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Navigation</div>
+        <div class="footer-links">
+          <a href="#top">Home</a><a href="tournaments.html">Tournaments</a>
+          <a href="seasons.html">Season History</a><a href="teams.html">Teams</a>
+          <a href="leaderboard.html">Leaderboard</a><a href="champions.html">Hall of Champions</a>
+          <a href="matches.html">Match History</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Updates & About</div>
+        <div class="footer-links">
+          <a href="announcements.html">Announcements</a><a href="about.html">About DEVIL'S ARENA</a>
+          <a href="contact.html">Contact</a><a href="faq.html">FAQ</a>
+          <a href="tournament-rules.html">Tournament Rules</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Policies</div>
+        <div class="footer-links">
+          <a href="terms.html">Terms & Conditions</a><a href="privacy-policy.html">Privacy Policy</a>
+          <a href="refund-policy.html">Refund Policy</a><a href="fair-play.html">Fair Play Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> DEVIL'S ARENA. All rights reserved.</span>
+      <a class="back-top" href="#top">Back to top ↑</a>
+      <span>Official Host: DEVIL</span>
+    </div>
+  </div>
 </footer>
 
-</div>
-
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+  menuToggle.textContent = isOpen ? '×' : '☰';
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation');
+    menuToggle.textContent = '☰';
+  });
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
