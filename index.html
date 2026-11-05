@@ -1,159 +1,503 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0A1931">
-  <meta name="description" content="ECHOX is coming soon. Beyond Technology. Explore AI, Developer, Education and Workspace in one connected ecosystem.">
+
+  <title>ECHOX — Beyond Technology</title>
+
+  <meta name="description" content="ECHOX is coming soon. Discover a new technology ecosystem for AI, development, education and productivity.">
+
   <meta property="og:title" content="ECHOX — Beyond Technology">
-  <meta property="og:description" content="A new technology ecosystem is on its way.">
+  <meta property="og:description" content="Something extraordinary is coming.">
+  <meta property="og:image" content="echox-logo.png">
   <meta property="og:type" content="website">
-  <title>ECHOX — Coming Soon</title>
+
+  <link rel="icon" type="image/png" href="echox-logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --navy:#0A1931; --blue:#1A73E8; --mid:#4A7FA7;
-      --pale:#B3CFE5; --paper:#F6FAFD; --white:#FFFFFF;
+      --navy: #0A1931;
+      --blue: #1A73E8;
+      --secondary: #4A7FA7;
+      --pale: #B3CFE5;
+      --background: #F6FAFD;
+      --white: #FFFFFF;
     }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      margin:0; min-height:100vh; color:var(--paper);
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      color: var(--white);
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(26,115,232,.23), transparent 48%),
-        radial-gradient(ellipse at 90% 85%, rgba(74,127,167,.15), transparent 35%),
+        radial-gradient(
+          ellipse at 50% 15%,
+          rgba(26, 115, 232, 0.24),
+          transparent 48%
+        ),
+        radial-gradient(
+          ellipse at 90% 90%,
+          rgba(74, 127, 167, 0.17),
+          transparent 38%
+        ),
         var(--navy);
-      font-family:Inter,system-ui,sans-serif; overflow-x:hidden;
     }
-    body:before {
-      content:""; position:fixed; inset:0; pointer-events:none; opacity:.16;
-      background-image:linear-gradient(rgba(179,207,229,.08) 1px,transparent 1px),
-                       linear-gradient(90deg,rgba(179,207,229,.08) 1px,transparent 1px);
-      background-size:52px 52px;
-      mask-image:linear-gradient(to bottom,black,transparent 85%);
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.15;
+      background-image:
+        linear-gradient(
+          rgba(179, 207, 229, 0.08) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(179, 207, 229, 0.08) 1px,
+          transparent 1px
+        );
+      background-size: 55px 55px;
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+      );
     }
-    .wrap { width:min(1100px, calc(100% - 40px)); margin:auto; position:relative; }
-    header { display:flex; justify-content:space-between; align-items:center; padding:28px 0; }
-    .wordmark { font:800 27px Sora,sans-serif; letter-spacing:-1.8px; color:var(--white); }
-    .wordmark span { color:var(--blue); }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo img {
+      width: 82px;
+      height: 82px;
+      object-fit: contain;
+      display: block;
+      border-radius: 50%;
+    }
+
     .status {
-      border:1px solid rgba(179,207,229,.25); border-radius:999px; padding:9px 14px;
-      color:var(--pale); font-size:11px; font-weight:700; letter-spacing:1.5px;
-      display:flex; align-items:center; gap:9px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 15px;
+      border: 1px solid rgba(179, 207, 229, 0.25);
+      border-radius: 30px;
+      color: var(--pale);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
     }
-    .dot { width:7px;height:7px;border-radius:50%;background:#55B6FF;box-shadow:0 0 12px #55B6FF; }
-    main { text-align:center; padding:clamp(65px,11vh,125px) 0 72px; }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #48A9FF;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #48A9FF;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      50% {
+        opacity: 0.35;
+        transform: scale(0.8);
+      }
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 0 90px;
+    }
+
     .eyebrow {
-      display:inline-flex; align-items:center; gap:9px; color:var(--pale);
-      font-size:11px; letter-spacing:3px; font-weight:700; text-transform:uppercase;
-      border:1px solid rgba(179,207,229,.2); border-radius:999px; padding:10px 16px;
-      background:rgba(255,255,255,.035);
+      padding: 11px 19px;
+      border: 1px solid rgba(179, 207, 229, 0.23);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--pale);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
     }
-    h1 {
-      font:800 clamp(58px,12vw,112px)/.98 Sora,sans-serif; letter-spacing:-.075em;
-      margin:30px 0 14px; color:var(--white);
+
+    .hero h1 {
+      margin-top: 32px;
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(58px, 12vw, 112px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -6px;
     }
-    h1 span {
-      background:linear-gradient(100deg,#F6FAFD 12%,#B3CFE5 48%,#1A73E8 95%);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
+
+    .gradient-text {
+      background: linear-gradient(
+        100deg,
+        #FFFFFF,
+        #B3CFE5 45%,
+        #1A73E8 95%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-    .tagline { font:600 clamp(17px,3vw,23px) Sora,sans-serif; color:var(--pale); letter-spacing:.02em; }
-    .intro { max-width:590px; margin:20px auto 0; color:rgba(246,250,253,.72); font-size:15px; line-height:1.8; }
-    .launch {
-      display:inline-flex; align-items:center; gap:10px; margin-top:34px; padding:13px 19px;
-      color:var(--white); background:linear-gradient(110deg,#1A73E8,#4A7FA7);
-      border-radius:9px; font-weight:700; font-size:13px; letter-spacing:.3px;
-      box-shadow:0 10px 35px rgba(26,115,232,.22);
+
+    .tagline {
+      margin-top: 18px;
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 600;
+      color: var(--pale);
+      letter-spacing: 0.5px;
     }
-    .launch .spark { font-size:16px; }
-    .divisions { padding:35px 0 82px; }
-    .section-title { text-align:center; color:var(--pale); font-size:11px; letter-spacing:2.7px; font-weight:700; text-transform:uppercase; margin:0 0 22px; }
-    .cards { display:grid; grid-template-columns:repeat(4,1fr); gap:13px; }
-    .card {
-      min-height:125px; padding:22px 16px; border:1px solid rgba(179,207,229,.17);
-      background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
-      border-radius:14px; text-align:left; transition:transform .2s,border-color .2s;
+
+    .description {
+      max-width: 590px;
+      margin: 23px auto 0;
+      color: rgba(246, 250, 253, 0.72);
+      font-size: 15px;
+      line-height: 1.9;
     }
-    .card:hover { transform:translateY(-4px); border-color:rgba(179,207,229,.48); }
-    .num { color:#69AEF5; font:700 11px Sora,sans-serif; letter-spacing:1px; }
-    .card h2 { color:var(--white); font:700 16px Sora,sans-serif; margin:17px 0 6px; }
-    .card p { margin:0; color:rgba(246,250,253,.55); font-size:11px; line-height:1.5; }
+
+    .launch-label {
+      margin-top: 34px;
+      padding: 14px 23px;
+      border-radius: 9px;
+      background: linear-gradient(
+        110deg,
+        var(--blue),
+        var(--secondary)
+      );
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 35px rgba(26, 115, 232, 0.25);
+    }
+
+    /* DIVISIONS */
+
+    .divisions {
+      padding: 30px 0 85px;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+      text-align: center;
+      color: var(--pale);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .division-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .division-card {
+      min-height: 145px;
+      padding: 23px 18px;
+      border: 1px solid rgba(179, 207, 229, 0.17);
+      border-radius: 14px;
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.075),
+        rgba(255, 255, 255, 0.025)
+      );
+      transition: 0.3s ease;
+    }
+
+    .division-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(179, 207, 229, 0.55);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .division-number {
+      color: #69AEF5;
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .division-card h2 {
+      margin-top: 19px;
+      color: var(--white);
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .division-card p {
+      margin-top: 9px;
+      color: rgba(246, 250, 253, 0.58);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+
     footer {
-      border-top:1px solid rgba(179,207,229,.14); padding:22px 0 28px;
-      display:flex; justify-content:space-between; gap:14px; color:rgba(246,250,253,.48);
-      font-size:11px; flex-wrap:wrap;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 25px 0;
+      border-top: 1px solid rgba(179, 207, 229, 0.15);
+      color: rgba(246, 250, 253, 0.5);
+      font-size: 11px;
     }
-    footer a { color:var(--pale); text-decoration:none; }
-    footer a:hover { color:var(--white); }
-    @media(max-width:700px) {
-      .cards { grid-template-columns:repeat(2,1fr); }
-      main { padding-top:75px; }
+
+    footer a {
+      color: var(--pale);
+      text-decoration: none;
     }
-    @media(max-width:420px) {
-      .wrap { width:min(100% - 30px,1100px); }
-      header { padding:21px 0; }
-      .wordmark { font-size:23px; }
-      .status { font-size:9px; padding:8px 10px; letter-spacing:1px; }
-      .cards { gap:9px; }
-      .card { min-height:118px; padding:17px 13px; }
-      .card h2 { font-size:14px; }
-      footer { justify-content:center; text-align:center; }
+
+    footer a:hover {
+      color: var(--white);
     }
-    @media(prefers-reduced-motion:reduce) { *,*:before,*:after { scroll-behavior:auto!important; transition:none!important; } }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 750px) {
+      .division-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: 490px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .container {
+        width: calc(100% - 30px);
+      }
+
+      .logo img {
+        width: 68px;
+        height: 68px;
+      }
+
+      .status {
+        padding: 9px 11px;
+        font-size: 8px;
+        letter-spacing: 1px;
+      }
+
+      .hero {
+        min-height: 440px;
+        padding: 55px 0 65px;
+      }
+
+      .hero h1 {
+        font-size: 62px;
+        letter-spacing: -3px;
+      }
+
+      .description {
+        font-size: 13px;
+      }
+
+      .division-grid {
+        gap: 10px;
+      }
+
+      .division-card {
+        min-height: 130px;
+        padding: 17px 13px;
+      }
+
+      .division-card h2 {
+        font-size: 14px;
+      }
+
+      footer {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
+
+  <div class="container">
+
+    <!-- HEADER -->
+
     <header>
-      <div class="wordmark">ECHO<span>X</span></div>
-      <div class="status"><span class="dot"></span> SOMETHING NEW IS COMING</div>
+      <a class="logo" href="/" aria-label="ECHOX home">
+        <img src="echox-logo.png" alt="ECHOX official logo">
+      </a>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        COMING SOON
+      </div>
     </header>
 
+    <!-- HERO SECTION -->
+
     <main>
-      <div class="eyebrow">THE NEXT CHAPTER OF TECHNOLOGY</div>
-      <h1><span>Coming</span><br>Soon.</h1>
-      <div class="tagline">Beyond Technology.</div>
-      <p class="intro">
-        A connected world of ideas, tools and possibilities is taking shape.
-        One ecosystem. Four divisions. A new way to explore technology.
-      </p>
-      <div class="launch"><span class="spark">✦</span> ECHOX IS ON ITS WAY</div>
+
+      <section class="hero">
+
+        <div class="eyebrow">
+          THE FUTURE IS TAKING SHAPE
+        </div>
+
+        <h1>
+          <span class="gradient-text">Coming</span>
+          <br>
+          Soon.
+        </h1>
+
+        <div class="tagline">
+          Beyond Technology.
+        </div>
+
+        <p class="description">
+          A new technology ecosystem is taking shape.
+          Bringing intelligence, development, education
+          and productivity together in one connected world.
+          Something extraordinary is on its way.
+        </p>
+
+        <div class="launch-label">
+          ✦ &nbsp; ECHOX IS ON ITS WAY
+        </div>
+
+      </section>
+
+      <!-- FOUR DIVISIONS -->
+
+      <section class="divisions">
+
+        <h2 class="section-heading">
+          One Ecosystem. Four Possibilities.
+        </h2>
+
+        <div class="division-grid">
+
+          <article class="division-card">
+            <div class="division-number">01 / INTELLIGENCE</div>
+            <h2>ECHOX AI</h2>
+            <p>
+              Ideas powered by intelligence.
+            </p>
+          </article>
+
+          <article class="division-card">
+            <div class="division-number">02 / DEVELOPMENT</div>
+            <h2>ECHOX Developer</h2>
+            <p>
+              Tools to create, develop and build.
+            </p>
+          </article>
+
+          <article class="division-card">
+            <div class="division-number">03 / LEARNING</div>
+            <h2>ECHOX Education</h2>
+            <p>
+              Knowledge for the next generation.
+            </p>
+          </article>
+
+          <article class="division-card">
+            <div class="division-number">04 / PRODUCTIVITY</div>
+            <h2>ECHOX Workspace</h2>
+            <p>
+              Your space to organize and create.
+            </p>
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- FOOTER -->
+
+      <footer>
+        <span>
+          © <span id="year"></span> ECHOX. All rights reserved.
+        </span>
+
+        <span>
+          Beyond Technology.
+        </span>
+
+        <a href="mailto:hello@echox.co.in">
+          Contact
+        </a>
+      </footer>
+
     </main>
 
-    <section class="divisions" aria-label="ECHOX divisions">
-      <p class="section-title">One ecosystem. Four possibilities.</p>
-      <div class="cards">
-        <article class="card">
-          <div class="num">01 / INTELLIGENCE</div>
-          <h2>ECHOX AI</h2>
-          <p>Ideas powered by intelligence.</p>
-        </article>
-        <article class="card">
-          <div class="num">02 / BUILD</div>
-          <h2>ECHOX Developer</h2>
-          <p>Tools to create and build.</p>
-        </article>
-        <article class="card">
-          <div class="num">03 / LEARN</div>
-          <h2>ECHOX Education</h2>
-          <p>Knowledge for what comes next.</p>
-        </article>
-        <article class="card">
-          <div class="num">04 / CREATE</div>
-          <h2>ECHOX Workspace</h2>
-          <p>Your space to get things done.</p>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      <span>© <span id="year"></span> ECHOX. All rights reserved.</span>
-      <span>Beyond Technology.</span>
-      <a href="mailto:hello@echox.co.in">Contact</a>
-    </footer>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
