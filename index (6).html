@@ -1,0 +1,597 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+
+    <meta name="description" content="Official DEVIL'S ARENA Free Fire tournament rules.">
+
+    <title>DEVIL'S ARENA | Official Tournament Rules</title>
+
+    <style>
+        /* RESET */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+
+        header {
+            width: 100%;
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000000;
+            border-bottom: 1px solid #222222;
+        }
+
+        .brand {
+            color: #ffffff;
+            font-size: 21px;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .brand span,
+        footer span {
+            color: #e50914;
+        }
+
+        .contact-btn {
+            background: #e50914;
+            color: #ffffff;
+            padding: 9px 18px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .contact-btn:hover {
+            background: #ff3038;
+        }
+
+        /* HERO / LOGO */
+
+        .hero {
+            width: 100%;
+            text-align: center;
+            padding: 25px 20px 35px;
+            background: #000000;
+        }
+
+        .logo {
+            display: block;
+            width: min(90%, 380px);
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto 22px;
+            background: #000000;
+            border: none;
+            box-shadow: none;
+            filter: none;
+        }
+
+        .hero-label {
+            color: #e50914;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 6vw, 44px);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-top: 10px;
+        }
+
+        .hero h1 span {
+            color: #e50914;
+        }
+
+        .hero p {
+            color: #aaaaaa;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* RULES CONTAINER */
+
+        .rules-section {
+            width: 100%;
+            max-width: 850px;
+            margin: auto;
+            padding: 25px 20px 65px;
+            background: #000000;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-heading small {
+            color: #e50914;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(25px, 5vw, 34px);
+            font-weight: 900;
+            margin-top: 5px;
+        }
+
+        .section-heading h2 span {
+            color: #e50914;
+        }
+
+        .section-description {
+            color: #999999;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        /* RULE CARDS */
+
+        .rule-card {
+            background: #111111;
+            border: 1px solid #292929;
+            border-left: 4px solid #e50914;
+            border-radius: 5px;
+            padding: 22px;
+            margin-bottom: 20px;
+        }
+
+        .rule-card h3 {
+            color: #ed1c24;
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 13px;
+        }
+
+        .rule-card p {
+            color: #bbbbbb;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .rule-card ul {
+            padding-left: 21px;
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        .rule-card li {
+            padding-left: 3px;
+            margin-bottom: 9px;
+        }
+
+        .rule-card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: #ff4545;
+            font-weight: bold;
+        }
+
+        /* WEAPON LIST */
+
+        .weapon-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .weapon {
+            background: #1b1b1b;
+            border: 1px solid #333333;
+            border-radius: 4px;
+            padding: 11px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .prohibited {
+            color: #ff4545;
+            font-weight: bold;
+        }
+
+        /* IMPORTANT NOTICE */
+
+        .notice {
+            background: #160707;
+            border: 1px solid #641015;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .notice h3 {
+            color: #ff3038;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .notice p {
+            color: #cccccc;
+            font-size: 13px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 30px 15px;
+            background: #000000;
+            border-top: 1px solid #222222;
+        }
+
+        footer h2 {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        footer p {
+            color: #999999;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        footer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 480px) {
+
+            header {
+                padding: 14px 5%;
+            }
+
+            .brand {
+                font-size: 18px;
+            }
+
+            .hero {
+                padding: 20px 15px 25px;
+            }
+
+            .logo {
+                width: min(90%, 320px);
+            }
+
+            .rules-section {
+                padding: 20px 15px 50px;
+            }
+
+            .rule-card {
+                padding: 17px;
+            }
+
+            .weapon-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <a href="index.html" class="brand">
+            DEVIL'S <span>ARENA</span>
+        </a>
+
+        <a href="contact.html" class="contact-btn">
+            CONTACT US
+        </a>
+
+    </header>
+
+    <!-- OFFICIAL LOGO -->
+
+    <section class="hero">
+
+        <img
+            src="logo.png"
+            alt="DEVIL'S ARENA Official Logo"
+            class="logo"
+        >
+
+        <div class="hero-label">
+            OFFICIAL TOURNAMENT PLATFORM
+        </div>
+
+        <h1>
+            DEVIL'S <span>ARENA</span>
+        </h1>
+
+        <p>
+            ONE ARENA. ENDLESS BATTLES.
+        </p>
+
+    </section>
+
+    <!-- OFFICIAL TOURNAMENT RULES -->
+
+    <main class="rules-section">
+
+        <div class="section-heading">
+
+            <small>PLAY FAIR • FIGHT HARD</small>
+
+            <h2>
+                TOURNAMENT <span>RULES</span>
+            </h2>
+
+            <p class="section-description">
+                All participating teams must read and follow
+                the rules before entering the match.
+            </p>
+
+        </div>
+
+        <!-- 01 GENERAL RULES -->
+
+        <section class="rule-card">
+
+            <h3>01. GENERAL RULES</h3>
+
+            <ul>
+                <li>Each team must consist of exactly <span class="highlight">4 players</span>.</li>
+
+                <li>All teams must join the room on time.</li>
+
+                <li>Players must provide screenshots or recordings whenever requested by the admin.</li>
+
+                <li>All teams must correctly follow the instructions given by DEVIL'S ARENA organisers.</li>
+            </ul>
+
+        </section>
+
+        <!-- 02 GAME SETTINGS -->
+
+        <section class="rule-card">
+
+            <h3>02. GAME SETTINGS & DETAILS</h3>
+
+            <ul>
+                <li>Character Skills: <span class="highlight">OFF</span></li>
+
+                <li>Gun Attributes: <span class="highlight">ON</span></li>
+
+                <li>Random Store: <span class="highlight">ON</span></li>
+            </ul>
+
+        </section>
+
+        <!-- 03 ALLOWED WEAPONS -->
+
+        <section class="rule-card">
+
+            <h3>03. ALLOWED GUNS</h3>
+
+            <p>
+                Only the following weapons are permitted during the match:
+            </p>
+
+            <div class="weapon-list">
+
+                <div class="weapon">Desert Eagle</div>
+
+                <div class="weapon">UMP</div>
+
+                <div class="weapon">M10</div>
+
+                <div class="weapon">MP4P</div>
+
+                <div class="weapon">M1887</div>
+
+                <div class="weapon">Woodpecker</div>
+
+            </div>
+
+            <p class="prohibited" style="margin-top:18px;">
+                STRICTLY PROHIBITED:
+            </p>
+
+            <ul>
+                <li>Chipped M10 is strictly prohibited.</li>
+
+                <li>Using any weapon not included in the allowed weapons list is strictly prohibited.</li>
+            </ul>
+
+        </section>
+
+        <!-- 04 LOADOUT RULES -->
+
+        <section class="rule-card">
+
+            <h3>04. LOADOUT RULES</h3>
+
+            <ul>
+                <li>Only <span class="highlight">Team Booster</span> is allowed.</li>
+
+                <li>Only ONE player per team is permitted to use Team Booster. The other three players must remove their loadouts.</li>
+
+                <li>Using auto-revive through a loadout is not allowed.</li>
+
+                <li>If a player receives auto-revive by mistake while using Team Booster, that player must be eliminated using the zone.</li>
+
+                <li>Normal revive is allowed.</li>
+
+                <li>Using any other loadout and activating it during the game will result in <span class="highlight">DIRECT DISQUALIFICATION</span>.</li>
+            </ul>
+
+        </section>
+
+        <!-- 05 GAMEPLAY RULES -->
+
+        <section class="rule-card">
+
+            <h3>05. GAME RULES</h3>
+
+            <p class="highlight">PROHIBITED:</p>
+
+            <ul>
+                <li>Rooftop usage is prohibited.</li>
+
+                <li>Steps usage is prohibited.</li>
+            </ul>
+
+            <p class="highlight" style="margin-top:17px;">
+                ALLOWED:
+            </p>
+
+            <ul>
+                <li>Gloo jumping is allowed.</li>
+
+                <li>Gloo breaking is allowed.</li>
+
+                <li>Single-container play is allowed.</li>
+
+                <li>Zone pack is allowed.</li>
+            </ul>
+
+        </section>
+
+        <!-- 06 STRICTLY PROHIBITED -->
+
+        <section class="rule-card">
+
+            <h3>06. STRICTLY PROHIBITED ACTIVITIES</h3>
+
+            <ul>
+                <li>Hacking or cheating.</li>
+
+                <li>Using panels or unauthorised third-party tools.</li>
+
+                <li>Exploiting game bugs or glitches.</li>
+
+                <li>Teaming with opponents.</li>
+
+                <li>Using prohibited weapons.</li>
+
+                <li>Abusive behaviour towards other players or admins.</li>
+            </ul>
+
+            <p class="highlight" style="margin-top:15px;">
+                Any violation may result in a warning or direct disqualification, depending on its severity.
+            </p>
+
+        </section>
+
+        <!-- 07 REPORTING CHEATING -->
+
+        <section class="rule-card">
+
+            <h3>07. REPORTING SUSPICIOUS ACTIVITIES</h3>
+
+            <ul>
+                <li>If a team suspects an opponent of cheating, using panels or showing abnormal movement, the team or team leader must report it to the host.</li>
+
+                <li>The complaint must include valid proof, such as a screenshot or game recording.</li>
+
+                <li>Complaints must be submitted within <span class="highlight">5 minutes after the match ends</span>.</li>
+
+                <li>The team accused of the violation must immediately join the official DEVIL'S ARENA Discord server when instructed by the organisers for verification.</li>
+
+                <li>Teams must cooperate with the admins during the investigation.</li>
+            </ul>
+
+        </section>
+
+        <!-- 08 TEAM RESPONSIBILITY -->
+
+        <section class="rule-card">
+
+            <h3>08. TEAM RESPONSIBILITY</h3>
+
+            <ul>
+                <li>Every team is responsible for knowing all tournament rules.</li>
+
+                <li>Team leaders must share the complete rules with all their teammates.</li>
+
+                <li>Every player is responsible for following the rules throughout the tournament.</li>
+
+                <li>Not knowing the rules will not be accepted as an excuse for rule violations.</li>
+            </ul>
+
+        </section>
+
+        <!-- FINAL NOTICE -->
+
+        <div class="notice">
+
+            <h3>IMPORTANT NOTICE</h3>
+
+            <p>
+                All teams must follow the official DEVIL'S ARENA
+                tournament rules. Rule violations may result in
+                warnings or direct disqualification.
+                The organisers reserve the right to review
+                reported incidents and take appropriate action.
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            DEVIL'S <span>ARENA</span>
+        </h2>
+
+        <p>
+            ONE ARENA. ENDLESS BATTLES.
+        </p>
+
+        <p>
+            <a href="contact.html">CONTACT US</a>
+        </p>
+
+        <p>
+            © 2026 DEVIL'S ARENA. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
